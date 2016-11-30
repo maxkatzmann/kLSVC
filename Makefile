@@ -1,6 +1,7 @@
 CC := g++ # This is the main compiler
 SRCDIR := src
 BUILDDIR := build
+BINDIR:= bin
 TARGET := bin/kLSVC
 CFLAGS := -std=c++11 -O3 $(DEBUG) $(REDUCEOUTPUT) -w -Wall
 SRCEXT := cpp
@@ -15,6 +16,7 @@ $(TARGET): $(OBJECTS)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
+	@mkdir -p $(BINDIR)
 	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
